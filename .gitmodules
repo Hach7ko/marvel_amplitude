@@ -1,0 +1,3 @@
+[submodule "app/Kiwapp_GulpFile"]
+	path = app/Kiwapp_GulpFile
+	url = git@github.com:kiwapp/Kiwapp_GulpFile.git

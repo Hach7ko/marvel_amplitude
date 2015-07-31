@@ -1,0 +1,17 @@
+{
+  "app_info": {
+    "name": "<%%=applicationName%>",
+    "author": "Kiwapp",
+    "codename": "1.0.0",
+    "author_email": "contact@kiwapp.com",
+    "description": "<%%=description%>",
+    "release_note": {
+      "1.0.0": ["Your release note here"]
+    },
+    "build_version": 1
+  },
+  "config": {
+    "typedef": {},
+    "fields": {}
+  }
+}

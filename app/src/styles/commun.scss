@@ -1,0 +1,67 @@
+/**
+ * Trans style in all the application
+ */
+
+html {
+    font-family: sans-serif;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    // ROOT FONT SIZE
+    font-size: 14px;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body{
+    // Set the background webview to white (Kiwapp requirement)
+    background: white;
+    margin: 0;
+}
+
+a {
+    background-color: transparent;
+}
+a:active,
+a:hover {
+    outline: 0;
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+*:before,
+*:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+* {
+    -webkit-touch-callout:none;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+}
+
+input, textarea {
+    -webkit-touch-callout: default;
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+}
+
+// The wrapper for all the contents, position absolute top, left, right, bottom 0 will put this div in full screen mode
+.wrapper{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.container {
+    margin-top:200px;
+}
+
