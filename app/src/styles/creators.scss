@@ -1,3 +1,6 @@
+
+@import "values";
+
 .container.container-pageCreator {
 
     header {
@@ -42,6 +45,30 @@
                     }
                 }
             }
+        }
+    }
+
+}
+
+.container.container-creator {
+    header {
+        top: 0;
+    }
+    .main {
+        padding: 25px;
+        .card-creators {
+            background: none;
+            margin-bottom: 100px;
+            margin-top: 150px;
+
+            .creatorsContent {
+                background: none;
+            }
+
+            .fullName:hover {
+                color:$primaryRed !important;
+            }
+
         }
     }
 

@@ -1,118 +1,35 @@
 <div class="container container-home">
 
-    <header>
-        <div class="title">
-            <img src="assets/images/Marvel_Header.png">
-        </div>
-        <div class="search">
-            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-            <input class="input-search" type="search" placeholder="{{'search' | translate}}" ng-model="searchValue">
-            <span class="glyphicon glyphicon-remove" aria-hidden="true" ng-click="searchValue=''"></span>
+    <sub-header></sub-header>
 
-            <md-button class="validSearch" ng-click="searchBy(searchValue)">{{'search' | translate}}</md-button>
-        </div>
-        <div class="lock-size" layout="row" layout-align="center center">
-            <md-fab-speed-dial  md-direction="down" ng-class="md-scale">
-
-                <md-fab-trigger>
-                    <md-button aria-label="menu" class="md-fab">
-                        <span class="glyphicon glyphicon-option-vertical"></span>
-                    </md-button>
-                </md-fab-trigger>
-
-                <md-fab-actions>
-                    <md-button aria-label="fr" class="md-fab md-raised md-mini" ng-click="changeLanguage('fr-FR')">
-                        {{'FR' | translate}}
-                    </md-button>
-                    <md-button aria-label="en" class="md-fab md-raised md-mini" ng-click="changeLanguage('en-EN')">
-                        {{'EN' | translate}}
-                    </md-button>
-                </md-fab-actions>
-            </md-fab-speed-dial>
-        </div>
-
-    </header>
 
     <div class="main">
-        <div class="newsletter" ng-show="showModal && isSearching == false">
-            <span class="glyphicon glyphicon-remove" aria-hidden="true" ng-click="closeModal()"></span>
-
-            <div class="explication" ng-show="isSearching == false">
-                <p>Marvel X Amplitude is a database on which you can browse through the whole Marvel catalogue.</p>
-
-                <p>You can either search by title or by author, then refine your search.</p>
-
-                <p>An author's page is divided between comics, series and stories, depending on what said author has worked on.</p>
-
-                <p>Each comics' page shows a synopsis of the issue, it's number and date of release, it's price, and the people who worked on it.</p>
-            </div>
-
-            <label class="bestof">{{'best_of' | translate}}</label>
-            <md-input-container md-no-float>
-                <input class="mail" ng-model="user.mail" type="email" placeholder="{{'your_email' | translate}}">
-            </md-input-container>
-            <div class="join-newsletter">
-                <md-button class="join" ng-click="closeModal()">{{'join' | translate}}</md-button>
-            </div>
-        </div>
-
-        <div class="searchResult" ng-show="isSearching">
-            <h1>Search result</h1>
-
-            <md-sidenav class="md-sidenav-left md-whiteframe-2" md-component-id="left">
-                <md-toolbar class="">
-                    <h1 class="md-toolbar-tools">Affiner votre recherche</h1>
-                </md-toolbar>
-                <md-content layout-padding>
-                    <md-checkbox ng-model="search.comics" aria-label="Comics" ng-init="search.creators=true">
-                        {{'creators' | translate}}
-                    </md-checkbox>
-                    <md-checkbox ng-model="search.creators" aria-label="Creators" ng-init="search.comics=true">
-                        {{'comics' | translate}}
-                    </md-checkbox>
-                    <md-button ng-click="close()" class="md-primary" hide-gt-md>
-                        {{'close' | translate}}
-                    </md-button>
-                </md-content>
-            </md-sidenav>
-
-            <md-button ng-click="toggleLeft()"
-                       class="md-primary" hide-gt-md>
-                Toggle left
-            </md-button>
-
-            <div class="card-comics" ng-if="search.comics && searchResponseComics.length > 0">
-                <h2>{{'comics' | translate}}</h2>
-                <md-content class="comicsContent md-padding">
-
-                    <md-card class="comic" ng-repeat="response in searchResponseComics">
-                        <img class="event-img" src="{{response.thumbnail.path}}/portrait_uncanny.{{response.thumbnail.extension}}" ng-click="goComic(response)">
-                        <md-card-content>
-                            <h2 class="md-title title">{{response.title}}</h2>
-                            <p class="description">{{response.description}}</p>
-
-                            <md-button class="see-more" ng-click="goComic(response)">{{'see_more' | translate}}</md-button>
-                        </md-card-content>
-                    </md-card>
-
-                </md-content>
-            </div>
-
-            <div class="card-creators" ng-if="search.creators">
-                <h2>{{'creators' | translate}}</h2>
-                <md-content class="creatorsContent md-padding">
-
-                    <md-card ng-repeat="response in searchResponseCreators" ng-click="goCreator(response)">
-                        <md-card-content>
-                            <h2 class="md-title fullName">{{response.fullName}}</h2>
-                        </md-card-content>
-                    </md-card>
-
-                </md-content>
-            </div>
-        </div>
+        <search></search>
 
         <div class="events" ng-show="isSearching == false">
+
+            <div class="newsletter" ng-show="showModal && isSearching == false">
+                <span class="glyphicon glyphicon-remove" aria-hidden="true" ng-click="closeModal()"></span>
+
+                <div class="explication" ng-show="isSearching == false">
+                    <p>Marvel X Amplitude is a database on which you can browse through the whole Marvel catalogue.</p>
+
+                    <p>You can either search by title or by author, then refine your search.</p>
+
+                    <p>An author's page is divided between comics, series and stories, depending on what said author has worked on.</p>
+
+                    <p>Each comics' page shows a synopsis of the issue, it's number and date of release, it's price, and the people who worked on it.</p>
+                </div>
+
+                <label class="bestof">{{'best_of' | translate}}</label>
+                <md-input-container md-no-float>
+                    <input class="mail" ng-model="user.mail" type="email" placeholder="{{'your_email' | translate}}">
+                </md-input-container>
+                <div class="join-newsletter">
+                    <md-button class="join" ng-click="closeModal()">{{'join' | translate}}</md-button>
+                </div>
+            </div>
+
             <div class="event">
                 <md-content class="md-padding">
                     <md-tabs md-dynamic-height md-border-bottom>

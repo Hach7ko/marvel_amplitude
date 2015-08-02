@@ -2,6 +2,8 @@
 
 require('../creator/creator');
 require('../comic/comic');
+require('../subHeader/subHeader');
+require('../search/search');
 
 angular.module('marvel_amplitude', [
     'ngAnimate',
@@ -11,7 +13,9 @@ angular.module('marvel_amplitude', [
     'pascalprecht.translate',
     'ngMaterial',
     'creator',
-    'comic'
+    'comic',
+    'subHeader',
+    'search'
 ])
     .controller('HomeCtrl', require('./controllers/HomeCtrl'))
     .service('events', require('./services/events.js'))

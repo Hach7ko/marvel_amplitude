@@ -19,6 +19,18 @@ module.exports = function($http) {
             });
     };
 
+    service.searchByCreators = function searchByCreators() {
+        var url = service.url + '/v1/public/creators?orderBy=firstName&apikey=' + service.publicKey;
+
+        return $http.get(url)
+            .success(function(response) {
+                console.log(response);
+            })
+            .error(function(response) {
+                console.log(response);
+            });
+    };
+
     service.getCreatorComics = function getCreatorComics(value) {
         var url = service.url + '/v1/public/creators/' + value.toString() + '/comics?orderBy=-onsaleDate&apikey=' + service.publicKey;
 
@@ -45,6 +57,30 @@ module.exports = function($http) {
 
     service.getCreatorStories = function getCreatorStories(value) {
         var url = service.url + '/v1/public/creators/' + value.toString() + '/stories?orderBy=-modified&apikey=' + service.publicKey;
+
+        return $http.get(url)
+            .success(function(response) {
+                console.log(response);
+            })
+            .error(function(response) {
+                console.log(response);
+            });
+    };
+
+    service.searchByComics = function searchByComics(value) {
+        var url = service.url + '/v1/public/comics?titleStartsWith=' + value + '&apikey=' + service.publicKey;
+
+        return $http.get(url)
+            .success(function(response) {
+                console.log(response);
+            })
+            .error(function(response) {
+                console.log(response);
+            });
+    };
+
+    service.searchByCreators = function searchByCreators(value) {
+        var url = service.url + '/v1/public/creators?nameStartsWith=' + value + '&orderBy=firstName&apikey=' + service.publicKey;
 
         return $http.get(url)
             .success(function(response) {

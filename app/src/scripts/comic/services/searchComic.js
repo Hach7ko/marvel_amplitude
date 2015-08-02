@@ -19,5 +19,41 @@ module.exports = function($http) {
             });
     };
 
+    service.searchByComic = function searchByComic() {
+        var url = service.url + '/v1/public/comics?orderBy=-onsaleDate&apikey=' + service.publicKey;
+
+        return $http.get(url)
+            .success(function(response) {
+                console.log(response);
+            })
+            .error(function(response) {
+                console.log(response);
+            });
+    };
+
+    service.searchByComics = function searchByComics(value) {
+        var url = service.url + '/v1/public/comics?titleStartsWith=' + value + '&apikey=' + service.publicKey;
+
+        return $http.get(url)
+            .success(function(response) {
+                console.log(response);
+            })
+            .error(function(response) {
+                console.log(response);
+            });
+    };
+
+    service.searchByCreators = function searchByCreators(value) {
+        var url = service.url + '/v1/public/creators?nameStartsWith=' + value + '&orderBy=firstName&apikey=' + service.publicKey;
+
+        return $http.get(url)
+            .success(function(response) {
+                console.log(response);
+            })
+            .error(function(response) {
+                console.log(response);
+            });
+    };
+
     return service;
 };

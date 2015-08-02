@@ -13,6 +13,9 @@ module.exports = function ($scope, $translate, events, search, $mdToast, $mdUtil
     };
 
     $scope.searchBy = function searchBy(value) {
+
+        value = value.replace(/\s+/g, '+');
+
         search.searchByComics(value)
             .success(function(response) {
                 $scope.searchResponseComics = response.data.results;
@@ -69,6 +72,10 @@ module.exports = function ($scope, $translate, events, search, $mdToast, $mdUtil
         $state.go('pageComic', {
             comicId: comic.id
         });
+    };
+
+    $scope.goHome = function goHome() {
+        $state.go('home');
     };
 
     $scope.toggleLeft = buildToggler('left');

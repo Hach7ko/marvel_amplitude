@@ -1,1 +1,23 @@
-page des comics
+<div class="container container-comics">
+    <sub-header></sub-header>
+
+    <div class="main">
+        <search></search>
+        <div class="card-comics" ng-if="isSearching == false">
+            <h2>{{'comics' | translate}}</h2>
+            <md-content class="comicsContent md-padding">
+
+                <md-card class="comic" ng-repeat="comic in comics">
+                    <img class="event-img" src="{{comic.thumbnail.path}}/portrait_uncanny.{{comic.thumbnail.extension}}" ng-click="goComic(comic)">
+                    <md-card-content>
+                        <h2 class="md-title title">{{comic.title}}</h2>
+                        <p class="description">{{comic.description}}</p>
+
+                        <md-button class="see-more" ng-click="goComic(comic)">{{'see_more' | translate}}</md-button>
+                    </md-card-content>
+                </md-card>
+
+            </md-content>
+        </div>
+    </div>
+</div>
