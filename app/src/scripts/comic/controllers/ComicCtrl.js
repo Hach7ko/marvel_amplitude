@@ -1,6 +1,6 @@
 'use strict';
 /*@ngInject*/
-module.exports = function (searchComic, $mdToast, $scope) {
+module.exports = function (searchComic, $mdToast, $scope, $state) {
     $scope.isSearching = false;
     $scope.offset = 20;
 
@@ -77,6 +77,12 @@ module.exports = function (searchComic, $mdToast, $scope) {
 
     $scope.goHome = function goHome() {
         $state.go('home');
+    };
+
+    $scope.goComic = function goComic(comic) {
+        $state.go('pageComic', {
+            comicId: comic.id
+        });
     };
 
     $scope.searchComics($scope.offset);

@@ -1,6 +1,6 @@
 'use strict';
 /*@ngInject*/
-module.exports = function ($stateParams, searchComic, $mdToast, $scope) {
+module.exports = function ($stateParams, searchComic, $mdToast, $scope, $state) {
     $scope.isSearching = false;
 
     searchComic.searchByComicById($stateParams.comicId)
@@ -63,5 +63,11 @@ module.exports = function ($stateParams, searchComic, $mdToast, $scope) {
 
     $scope.goHome = function goHome() {
         $state.go('home');
+    };
+
+    $scope.goCreator = function goCreator(creator) {
+        $state.go('pageCreator', {
+            creatorId: creator
+        });
     };
 };
