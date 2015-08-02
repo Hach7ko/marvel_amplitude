@@ -2,7 +2,7 @@
 
 require('../creator/creator');
 
-angular.module('marvel_amplitude', [
+angular.module('creator', [
     'ngAnimate',
     'ngTouch',
     'ngSanitize',
@@ -24,7 +24,7 @@ angular.module('marvel_amplitude', [
                 controller: 'HomeCtrl'
             });
 
-        $urlRouterProvider.otherwise('/home');
+        //$urlRouterProvider.otherwise('/home');
 
         $translateProvider.useStaticFilesLoader({
             prefix: 'i18n/',

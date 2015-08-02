@@ -1,3 +1,5 @@
+@import "values";
+
 /**
  * Trans style in all the application
  */
@@ -62,6 +64,136 @@ input, textarea {
 }
 
 .container {
-    margin-top:200px;
+
+    header {
+        background-color: $primaryRed;
+        color: #ffffff;
+
+        width: 100%;
+        height: 100px;
+
+        .title {
+            display: inline-block;
+            width: 100px;
+
+            margin-left: 25px;
+            position: relative;
+            bottom: 50px;
+        }
+
+        .search {
+            display: inline-block;
+            width: 50%;
+
+            position: relative;
+            left: 125px;
+
+            .glyphicon-search {
+                position: relative;
+                float: left;
+
+                top: 32px;
+                left: 10px;
+
+                font-size: 1.5rem;
+            }
+
+            .glyphicon-remove {
+                position: relative;
+                float: right;
+
+                top: -32px;
+                right: 10px;
+
+                font-size: 1.5rem;
+            }
+
+            input {
+                display: block;
+                padding: 8px 8px 8px 72px;
+                box-shadow: 0px 1px 1.5px rgba(0,0,0,0.06),0px 1px 1px rgba(0,0,0,0.12);
+                width: 100%;
+                background: $secondaryRed;
+                height: 36px;
+                -webkit-transition: all 200ms ease;
+                transition: all 200ms ease;
+                border: none;
+                font-size: 16px;
+                appearance: textfield;
+                font-weight: 300;
+                outline: none;
+                border-radius: 3px;
+
+                &::-webkit-input-placeholder {
+                    color: #ffffff;
+                    font-size: 1.5rem;
+                }
+            }
+
+            input:focus {
+                border: none;
+                color: white;
+                font-size: 1.5rem;
+            }
+
+            input[type="search"] {
+                -webkit-appearance: none;
+            }
+
+            input[type="search"] {
+                box-sizing: border-box;
+            }
+        }
+
+        .lock-size {
+            position: relative;
+            float: right;
+
+            top: 10px;
+            right: 10px;
+
+            md-fab-speed-dial {
+                md-fab-trigger {
+                    .md-fab {
+                        background-color: $primaryRed;
+                    }
+
+                    .md-fab:hover {
+                        background-color: $secondaryRed;
+                    }
+                }
+            }
+        }
+    }
+
+    .newsletter {
+        background-color: #fdf5e6;
+        width: 80%;
+        height: 100%;
+
+        margin: 25px;
+
+        padding: 10px;
+
+        .glyphicon-remove {
+            position: relative;
+            float: right;
+
+            font-size: 1.5rem;
+        }
+
+        .join {
+            float: right;
+            background-color: $primaryRed;
+
+            color: #ffffff;
+        }
+
+        .join:hover {
+            background-color: $secondaryRed;
+
+        }
+    }
+
 }
 

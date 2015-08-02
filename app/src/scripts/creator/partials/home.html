@@ -1,0 +1,104 @@
+<div class="container container-home">
+
+    <header>
+        <div class="title">
+            <h1>MARVEL</h1>
+        </div>
+        <div class="search">
+            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+            <input class="input-search" type="search" placeholder="{{'search' | translate}}" ng-model="searchValue">
+            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+
+            <md-button ng-click="searchBy(searchValue)">Search</md-button>
+        </div>
+        <div class="lock-size" layout="row" layout-align="center center">
+            <md-fab-speed-dial  md-direction="down" ng-class="md-scale">
+
+                <md-fab-trigger>
+                    <md-button aria-label="menu" class="md-fab">
+                        <span class="glyphicon glyphicon-option-vertical"></span>
+                    </md-button>
+                </md-fab-trigger>
+
+                <md-fab-actions>
+                    <md-button aria-label="fr" class="md-fab md-raised md-mini" ng-click="changeLanguage('fr-FR')">
+                        {{'FR' | translate}}
+                    </md-button>
+                    <md-button aria-label="en" class="md-fab md-raised md-mini" ng-click="changeLanguage('en-EN')">
+                        {{'EN' | translate}}
+                    </md-button>
+                </md-fab-actions>
+            </md-fab-speed-dial>
+        </div>
+
+    </header>
+
+    <div class="main">
+        <div class="newsletter" ng-show="showModal">
+            <span class="glyphicon glyphicon-remove" aria-hidden="true" ng-click="closeModal()"></span>
+            <label>{{'best_of' | translate}}</label>
+            <md-input-container md-no-float>
+                <input ng-model="user.mail" type="email" placeholder="{{'your_email' | translate}}">
+            </md-input-container>
+            <md-button class="join">{{'join' | translate}}</md-button>
+        </div>
+
+        <div class="carddemoBasicUsage" ng-show="isSearching">
+            <md-content class="md-padding">
+
+                <md-card ng-repeat="response in searchResponseComics">
+                    <img class="event-img" src="{{response.thumbnail.path}}/portrait_uncanny.{{response.thumbnail.extension}}">
+                    <md-card-content>
+                        <h2 class="md-title">{{response.title}}</h2>
+                        <p>{{response.description}}</p>
+                    </md-card-content>
+                </md-card>
+
+            </md-content>
+        </div>
+
+        <div class="carddemoBasicUsage" ng-show="isSearching">
+            <md-content class="md-padding">
+
+                <md-card ng-repeat="response in searchResponseCreators">
+                    <md-card-content>
+                        <h2 class="md-title">{{response.fullName}}</h2>
+                    </md-card-content>
+                </md-card>
+
+            </md-content>
+        </div>
+
+        <div class="explication" ng-show="isSearching == false">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas rhoncus finibus consequat. Nunc lectus felis, accumsan ac ultrices ut, consectetur in diam. Quisque luctus commodo ultricies. Phasellus sit amet magna accumsan, aliquam quam ut, interdum orci. Nulla iaculis rutrum turpis, vel aliquet orci porttitor vel. Vivamus accumsan nisl vel massa sodales, ut scelerisque augue tempus. Nulla volutpat pretium augue.
+
+            Etiam finibus odio et venenatis vestibulum. Vivamus venenatis mi tellus, sit amet semper massa tincidunt sit amet. Maecenas aliquam bibendum sem, in fermentum eros sagittis ac. Nulla ut elit ut lorem faucibus pulvinar eu at lacus. Quisque malesuada tellus lorem, sit amet facilisis libero fermentum nec. Vestibulum blandit eu purus eu mollis. Maecenas euismod nibh velit, id pharetra ipsum varius ac. Vestibulum ultrices mollis arcu bibendum dictum. Aliquam nec quam sit amet eros varius dictum a a risus. Sed consequat aliquet tempus. Proin interdum semper felis et ultricies.
+
+            Integer pharetra eros turpis, sit amet dignissim odio placerat sit amet. Vestibulum quam lorem, lobortis non arcu et, laoreet auctor ligula. Quisque sit amet mauris leo. Nunc auctor quam sit amet varius bibendum. Vestibulum vel facilisis enim, ac convallis nunc. Mauris ut ullamcorper nibh. Duis tincidunt commodo augue, id interdum purus elementum non. Suspendisse sed consequat nisi. Cras quis imperdiet nisi. Nunc vestibulum massa non eros scelerisque porta.
+
+            Nulla ac lobortis nisi, nec vestibulum mauris. Aliquam dictum mauris vitae ipsum consequat dapibus. Cras vestibulum ut libero sed accumsan. Nunc luctus arcu vitae laoreet fringilla. Phasellus quis dignissim tortor, id bibendum orci. Ut a risus non erat varius aliquet imperdiet sed nisi. Suspendisse posuere enim ligula. Vestibulum dictum felis non lectus mattis, sit amet faucibus velit vehicula. Nam volutpat malesuada nisi. Suspendisse accumsan nibh ac mollis faucibus.
+
+            Sed at dictum metus. Vivamus leo tortor, mattis vitae nisi in, tempor dictum mi. Mauris congue luctus nisl, tincidunt mollis dolor posuere id. Donec aliquet eget lectus nec iaculis. Integer feugiat facilisis lorem at finibus. Cras a tincidunt dui. Quisque commodo massa nisl, non interdum augue mattis eu. Fusce bibendum sagittis placerat. Nunc maximus pharetra mi, non mattis lacus vestibulum et. Sed dictum non lectus sagittis consequat. Nulla facilisi.
+        </div>
+
+        <div class="events" ng-show="isSearching == false">
+            <div class="event">
+                <md-content class="md-padding">
+                    <md-tabs md-dynamic-height md-border-bottom>
+                        <md-tab label="{{event.title}}" ng-repeat="event in events | limitTo:5">
+                            <md-content class="md-padding">
+                                <img class="event-img" src="{{event.thumbnail.path}}/portrait_uncanny.{{event.thumbnail.extension}}">
+                                <p>{{event.description}}</p>
+                            </md-content>
+                        </md-tab>
+                    </md-tabs>
+                </md-content>
+            </div>
+            <md-button class="see-more">{{'see_more' | translate}}</md-button>
+        </div>
+
+    </div>
+
+    <footer></footer>
+
+</div>

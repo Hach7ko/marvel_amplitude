@@ -1,6 +1,6 @@
 {
   "app_info": {
-    "name": "<%%=applicationName%>",
+    "name": "marvel_amplitude",
     "author": "Kiwapp",
     "codename": "1.0.0",
     "author_email": "contact@kiwapp.com",
