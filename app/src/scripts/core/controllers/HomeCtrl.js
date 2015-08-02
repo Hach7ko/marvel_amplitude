@@ -13,7 +13,7 @@ module.exports = function ($scope, $translate, events, search, $mdToast, $mdUtil
     };
 
     $scope.searchBy = function searchBy(value) {
-        /*search.searchByComics(value)
+        search.searchByComics(value)
             .success(function(response) {
                 $scope.searchResponseComics = response.data.results;
 
@@ -28,7 +28,7 @@ module.exports = function ($scope, $translate, events, search, $mdToast, $mdUtil
                 $mdToast.show(toast).then(function() {
                     $scope.searchBy(value);
                 });
-            });*/
+            });
 
        search.searchByCreators(value)
             .success(function(response) {
@@ -48,20 +48,26 @@ module.exports = function ($scope, $translate, events, search, $mdToast, $mdUtil
             });
     };
 
-    /*events.getEvents()
+   events.getEvents()
         .success(function(response) {
             $scope.events = response.data.results;
             console.log($scope.events);
         })
         .error(function() {
 
-        });*/
+        });
 
     $scope.goCreator = function goCreator(creator) {
         console.log(creator);
         $state.go('pageCreator', {
-            creatorId: creator.id,
-            creator: creator
+            creatorId: creator.id
+        });
+    };
+
+    $scope.goComic = function goComic(comic) {
+        console.log(comic);
+        $state.go('pageComic', {
+            comicId: comic.id
         });
     };
 

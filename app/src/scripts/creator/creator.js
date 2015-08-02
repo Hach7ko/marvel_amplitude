@@ -3,6 +3,7 @@
 angular.module('creator', [])
     .controller('CreatorCtrl', require('./controllers/CreatorCtrl'))
     .controller('PageCreatorCtrl', require('./controllers/PageCreatorCtrl'))
+    .service('searchCreator', require('./services/searchCreator'))
     .config(function ($stateProvider) {
 
         $stateProvider.state('creator', {

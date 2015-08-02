@@ -1,1 +1,99 @@
-page d'un créateur
+<div class="container container-pageCreator">
+
+    <header>
+        <div class="title">
+            <img src="assets/images/Marvel_Header.png">
+        </div>
+        <div class="search">
+            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+            <input class="input-search" type="search" placeholder="{{'search' | translate}}" ng-model="searchValue">
+            <span class="glyphicon glyphicon-remove" aria-hidden="true" ng-click="searchValue=''"></span>
+
+            <md-button class="validSearch" ng-click="searchBy(searchValue)">{{'search' | translate}}</md-button>
+        </div>
+        <div class="lock-size" layout="row" layout-align="center center">
+            <md-fab-speed-dial  md-direction="down" ng-class="md-scale">
+
+                <md-fab-trigger>
+                    <md-button aria-label="menu" class="md-fab">
+                        <span class="glyphicon glyphicon-option-vertical"></span>
+                    </md-button>
+                </md-fab-trigger>
+
+                <md-fab-actions>
+                    <md-button aria-label="fr" class="md-fab md-raised md-mini" ng-click="changeLanguage('fr-FR')">
+                        {{'FR' | translate}}
+                    </md-button>
+                    <md-button aria-label="en" class="md-fab md-raised md-mini" ng-click="changeLanguage('en-EN')">
+                        {{'EN' | translate}}
+                    </md-button>
+                </md-fab-actions>
+            </md-fab-speed-dial>
+        </div>
+
+    </header>
+
+    <div class="main">
+        <div class="creator-comics">
+            <h1>{{creator.fullName}} : {{'comics' | translate}}</h1>
+
+            <div class="card-comics">
+                <md-content class="comicsContent md-padding">
+
+                    <md-card class="comic" ng-repeat="comic in comics">
+                        <img class="event-img" src="{{comic.thumbnail.path}}/portrait_uncanny.{{comic.thumbnail.extension}}" ng-click="goComic(comic)">
+                        <md-card-content>
+                            <h2 class="md-title title">{{comic.title}}</h2>
+                            <p class="description">{{comic.description}}</p>
+
+                            <md-button class="see-more" ng-click="goComic(response)">{{'see_more' | translate}}</md-button>
+                        </md-card-content>
+                    </md-card>
+
+                </md-content>
+            </div>
+        </div>
+
+        <div class="creator-series">
+            <h1>{{creator.fullName}} : Series</h1>
+
+            <div class="card-comics">
+                <md-content class="comicsContent md-padding">
+
+                    <md-card class="comic" ng-repeat="serie in series">
+                        <img class="event-img" src="{{serie.thumbnail.path}}/portrait_uncanny.{{serie.thumbnail.extension}}" ng-click="goComic(serie)">
+                        <md-card-content>
+                            <h2 class="md-title title">{{serie.title}}</h2>
+                            <p class="description">{{serie.description}}</p>
+
+                            <md-button class="see-more" ng-click="goComic(response)">{{'see_more' | translate}}</md-button>
+                        </md-card-content>
+                    </md-card>
+
+                </md-content>
+            </div>
+        </div>
+
+        <div class="creator-stories">
+            <h1>{{creator.fullName}} : Stories</h1>
+
+            <div class="card-comics">
+                <md-content class="comicsContent md-padding">
+
+                    <md-card class="comic" ng-repeat="story in stories">
+                        <img class="event-img" src="{{story.thumbnail.path}}/portrait_uncanny.{{story.thumbnail.extension}}" ng-click="goComic(story)">
+                        <md-card-content>
+                            <h2 class="md-title title">{{story.title}}</h2>
+                            <p class="description">{{story.description}}</p>
+
+                            <md-button class="see-more" ng-click="goComic(story)">{{'see_more' | translate}}</md-button>
+                        </md-card-content>
+                    </md-card>
+
+                </md-content>
+            </div>
+        </div>
+    </div>
+
+    <footer></footer>
+</div>

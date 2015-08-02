@@ -1,0 +1,45 @@
+.container.container-pageComic {
+    .main {
+        padding: 25px;
+        .comic {
+            margin: 25px;
+            margin-top: 150px;
+            overflow: hidden;
+            width: 100%;
+
+            .img {
+                float: left;
+                margin: 25px;
+                box-shadow: 5px 5px 5px #B8B8B8;
+            }
+
+            .info {
+                float: left;
+                margin-left: 50px;
+                width: 70%;
+                margin-top: 25px;
+
+                .title {
+                    font-size: 2.5rem;
+                }
+
+                .creators {
+                    margin: 0px;
+                    font-size: 1.5rem;
+
+                    .role {
+                        text-transform: capitalize;
+                    }
+
+                    .name {
+                        text-decoration: underline;
+                    }
+                }
+
+                .description {
+                    font-size: 1.3rem;
+                }
+            }
+        }
+    }
+}

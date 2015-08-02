@@ -1,0 +1,56 @@
+<div class="container container-pageComic">
+
+    <header>
+        <div class="title">
+            <img src="assets/images/Marvel_Header.png">
+        </div>
+        <div class="search">
+            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+            <input class="input-search" type="search" placeholder="{{'search' | translate}}" ng-model="searchValue">
+            <span class="glyphicon glyphicon-remove" aria-hidden="true" ng-click="searchValue=''"></span>
+
+            <md-button class="validSearch" ng-click="searchBy(searchValue)">{{'search' | translate}}</md-button>
+        </div>
+        <div class="lock-size" layout="row" layout-align="center center">
+            <md-fab-speed-dial  md-direction="down" ng-class="md-scale">
+
+                <md-fab-trigger>
+                    <md-button aria-label="menu" class="md-fab">
+                        <span class="glyphicon glyphicon-option-vertical"></span>
+                    </md-button>
+                </md-fab-trigger>
+
+                <md-fab-actions>
+                    <md-button aria-label="fr" class="md-fab md-raised md-mini" ng-click="changeLanguage('fr-FR')">
+                        {{'FR' | translate}}
+                    </md-button>
+                    <md-button aria-label="en" class="md-fab md-raised md-mini" ng-click="changeLanguage('en-EN')">
+                        {{'EN' | translate}}
+                    </md-button>
+                </md-fab-actions>
+            </md-fab-speed-dial>
+        </div>
+
+    </header>
+
+    <div class="main">
+        <div class="comic">
+            <div class="img">
+                <img class="comic-img" src="{{comic.thumbnail.path}}/portrait_uncanny.{{comic.thumbnail.extension}}">
+            </div>
+            <div class="info">
+                <h1 class="title">{{comic.title}}</h1>
+
+                <p class="creators" ng-repeat="creator in comic.creators.items">
+                    <span class="role">{{creator.role}}</span> : <span ng-click="goCreator(creator.name)" class="name">{{creator.name}}</span>
+                </p>
+
+                <p class="description">{{comic.description}}</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+
+    </footer>
+</div>
