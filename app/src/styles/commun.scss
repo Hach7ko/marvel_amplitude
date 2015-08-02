@@ -126,7 +126,7 @@ input, textarea {
                 float: right;
                 height: 40px;
 
-                padding: 5px;
+                padding: 10px;
                 bottom: 46px;
                 left: 175px;
 
@@ -204,6 +204,19 @@ input, textarea {
                 bottom: 25px;
                 color: #ffffff;
             }
+
+            .triangle {
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 31px 33px 0 0;
+                border-color: $primaryRed transparent transparent transparent;
+
+                position: relative;
+                float: right;
+                left: 32px;
+                bottom: 17px;
+            }
         }
     }
 
@@ -214,6 +227,7 @@ input, textarea {
         height: 50px;
         width: 100%;
         background-color: #000000;
+        color: white;
     }
 
     .searchResult {
@@ -270,5 +284,22 @@ input, textarea {
 
         }
     }
+
+    .load {
+        background-color: $primaryRed;
+        color: #ffffff;
+        position: relative;
+        left: 45%;
+        font-size: 2rem;
+        width: 150px;
+        padding: 10px;
+    }
+
+    .load:hover {
+        background-color: #ffffff;
+        color: #000000;
+        border: 1px solid #000000;
+    }
+
 }
 

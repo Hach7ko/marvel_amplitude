@@ -19,8 +19,8 @@ module.exports = function($http) {
             });
     };
 
-    service.searchByComic = function searchByComic() {
-        var url = service.url + '/v1/public/comics?orderBy=-onsaleDate&apikey=' + service.publicKey;
+    service.searchByComic = function searchByComic(offset) {
+        var url = service.url + '/v1/public/comics?orderBy=-onsaleDate&offset=' + offset.toString() + '&apikey=' + service.publicKey;
 
         return $http.get(url)
             .success(function(response) {

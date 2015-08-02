@@ -54,21 +54,18 @@ module.exports = function ($scope, $translate, events, search, $mdToast, $mdUtil
    events.getEvents()
         .success(function(response) {
             $scope.events = response.data.results;
-            console.log($scope.events);
         })
         .error(function() {
 
         });
 
     $scope.goCreator = function goCreator(creator) {
-        console.log(creator);
         $state.go('pageCreator', {
             creatorId: creator.id
         });
     };
 
     $scope.goComic = function goComic(comic) {
-        console.log(comic);
         $state.go('pageComic', {
             comicId: comic.id
         });

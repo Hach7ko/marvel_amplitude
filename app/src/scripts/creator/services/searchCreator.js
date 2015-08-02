@@ -19,8 +19,8 @@ module.exports = function($http) {
             });
     };
 
-    service.searchByCreators = function searchByCreators() {
-        var url = service.url + '/v1/public/creators?orderBy=firstName&apikey=' + service.publicKey;
+    service.searchByCreators = function searchByCreators(offset) {
+        var url = service.url + '/v1/public/creators?orderBy=firstName&offset=' + offset + '&apikey=' + service.publicKey;
 
         return $http.get(url)
             .success(function(response) {
@@ -69,18 +69,6 @@ module.exports = function($http) {
 
     service.searchByComics = function searchByComics(value) {
         var url = service.url + '/v1/public/comics?titleStartsWith=' + value + '&apikey=' + service.publicKey;
-
-        return $http.get(url)
-            .success(function(response) {
-                console.log(response);
-            })
-            .error(function(response) {
-                console.log(response);
-            });
-    };
-
-    service.searchByCreators = function searchByCreators(value) {
-        var url = service.url + '/v1/public/creators?nameStartsWith=' + value + '&orderBy=firstName&apikey=' + service.publicKey;
 
         return $http.get(url)
             .success(function(response) {
