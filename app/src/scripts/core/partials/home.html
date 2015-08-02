@@ -34,7 +34,7 @@
     </header>
 
     <div class="main">
-        <div class="newsletter" ng-show="showModal">
+        <div class="newsletter" ng-show="showModal && isSearching == false">
             <span class="glyphicon glyphicon-remove" aria-hidden="true" ng-click="closeModal()"></span>
             <label>{{'best_of' | translate}}</label>
             <md-input-container md-no-float>
@@ -43,32 +43,58 @@
             <md-button class="join">{{'join' | translate}}</md-button>
         </div>
 
-        <div class="carddemoBasicUsage" ng-show="isSearching">
-            <h1>Comics</h1>
-            <md-content class="md-padding">
+        <div class="searchResult" ng-show="isSearching">
+            <h1>Search result</h1>
 
-                <md-card ng-repeat="response in searchResponseComics">
-                    <img class="event-img" src="{{response.thumbnail.path}}/portrait_uncanny.{{response.thumbnail.extension}}">
-                    <md-card-content>
-                        <h2 class="md-title">{{response.title}}</h2>
-                        <p>{{response.description}}</p>
-                    </md-card-content>
-                </md-card>
+            <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left">
+                <md-toolbar class="">
+                    <h1 class="md-toolbar-tools">Affiner votre recherche</h1>
+                </md-toolbar>
+                <md-content layout-padding>
+                    <md-checkbox ng-model="search.comics" aria-label="Comics" ng-init="search.comics=true">
+                        Comics
+                    </md-checkbox>
+                    <md-checkbox ng-model="search.creators" aria-label="Creators" ng-init="search.creators=true">
+                        Creators
+                    </md-checkbox>
+                    <md-button ng-click="close()" class="md-primary" hide-gt-md>
+                        Fermer
+                    </md-button>
+                </md-content>
+            </md-sidenav>
 
-            </md-content>
-        </div>
+            <md-button ng-click="toggleLeft()"
+                       class="md-primary" hide-gt-md>
+                Toggle left
+            </md-button>
 
-        <div class="carddemoBasicUsage" ng-show="isSearching">
-            <h1>Creators</h1>
-            <md-content class="md-padding">
+            <div class="carddemoBasicUsage" ng-if="search.comics">
+                <h2>Comics</h2>
+                <md-content class="md-padding">
 
-                <md-card ng-repeat="response in searchResponseCreators">
-                    <md-card-content>
-                        <h2 class="md-title">{{response.fullName}}</h2>
-                    </md-card-content>
-                </md-card>
+                    <md-card ng-repeat="response in searchResponseComics">
+                        <img class="event-img" src="{{response.thumbnail.path}}/portrait_uncanny.{{response.thumbnail.extension}}">
+                        <md-card-content>
+                            <h2 class="md-title">{{response.title}}</h2>
+                            <p>{{response.description}}</p>
+                        </md-card-content>
+                    </md-card>
 
-            </md-content>
+                </md-content>
+            </div>
+
+            <div class="carddemoBasicUsage" ng-if="search.creators">
+                <h2>Creators</h2>
+                <md-content class="md-padding">
+
+                    <md-card ng-repeat="response in searchResponseCreators">
+                        <md-card-content>
+                            <h2 class="md-title">{{response.fullName}}</h2>
+                        </md-card-content>
+                    </md-card>
+
+                </md-content>
+            </div>
         </div>
 
         <div class="explication" ng-show="isSearching == false">

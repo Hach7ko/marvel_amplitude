@@ -8,7 +8,7 @@ module.exports = function($http) {
     service.publicKey = 'ef9a36f7829ce13c245d427be87140f1';
 
     service.searchByComics = function searchByComics(value) {
-            var url = service.url + '/v1/public/comics?titleStartsWith=' + value + '&orderBy=firstName&apikey=' + service.publicKey;
+            var url = service.url + '/v1/public/comics?titleStartsWith=' + value + '&apikey=' + service.publicKey;
 
         return $http.get(url)
             .success(function(response) {
@@ -20,7 +20,7 @@ module.exports = function($http) {
     };
 
     service.searchByCreators = function searchByCreators(value) {
-        var url = service.url + '/v1/public/creators?nameStartsWith=' + value + '&apikey=' + service.publicKey;
+        var url = service.url + '/v1/public/creators?nameStartsWith=' + value + '&orderBy=firstName&apikey=' + service.publicKey;
 
         return $http.get(url)
             .success(function(response) {
