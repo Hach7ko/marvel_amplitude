@@ -1,0 +1,19 @@
+<div class="container container-creator">
+    <sub-header></sub-header>
+
+    <div class="main">
+        <search></search>
+        <div class="card-creators">
+            <h2>{{'creators' | translate}}</h2>
+            <md-content class="creatorsContent md-padding">
+
+                <md-card ng-repeat="creator in creators" ng-click="goCreator(creator)">
+                    <md-card-content>
+                        <h2 class="md-title fullName">{{creator.fullName}}</h2>
+                    </md-card-content>
+                </md-card>
+
+            </md-content>
+        </div>
+    </div>
+</div>

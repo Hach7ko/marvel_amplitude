@@ -1,0 +1,75 @@
+
+@import "values";
+
+.container.container-pageCreator {
+
+    header {
+        top: 0;
+    }
+    .main {
+        padding: 25px;
+        .creator-comics, .creator-series, .creator-stories {
+            margin-top: 150px;
+            .card-comics {
+                background: none;
+                margin: 0 auto;
+
+                .comicsContent {
+                    background: none;
+                }
+
+                .comic {
+                    width: 250px;
+                    display: inline-block;
+                    background: white;
+
+                    .title {
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                        height: 25px;
+                    }
+
+                    .description {
+                        height: 50px;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                    }
+
+                    .see-more {
+                        float: right;
+                    }
+
+                    .see-more:hover {
+                        background-color: #000000;
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+.container.container-creator {
+    header {
+        top: 0;
+    }
+    .main {
+        padding: 25px;
+        .card-creators {
+            background: none;
+            margin-bottom: 100px;
+            margin-top: 150px;
+
+            .creatorsContent {
+                background: none;
+            }
+
+            .fullName:hover {
+                color:$primaryRed !important;
+            }
+
+        }
+    }
+
+}

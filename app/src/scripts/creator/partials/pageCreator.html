@@ -1,0 +1,69 @@
+<div class="container container-pageCreator">
+
+    <sub-header></sub-header>
+
+    <div class="main">
+        <search></search>
+        <div class="creator-comics">
+            <h1>{{creator.fullName}} : {{'comics' | translate}}</h1>
+
+            <div class="card-comics">
+                <md-content class="comicsContent md-padding">
+
+                    <md-card class="comic" ng-repeat="comic in comics">
+                        <img class="event-img" src="{{comic.thumbnail.path}}/portrait_uncanny.{{comic.thumbnail.extension}}" ng-click="goComic(comic)">
+                        <md-card-content>
+                            <h2 class="md-title title">{{comic.title}}</h2>
+                            <p class="description">{{comic.description}}</p>
+
+                            <md-button class="see-more" ng-click="goComic(response)">{{'see_more' | translate}}</md-button>
+                        </md-card-content>
+                    </md-card>
+
+                </md-content>
+            </div>
+        </div>
+
+        <div class="creator-series">
+            <h1>{{creator.fullName}} : Series</h1>
+
+            <div class="card-comics">
+                <md-content class="comicsContent md-padding">
+
+                    <md-card class="comic" ng-repeat="serie in series">
+                        <img class="event-img" src="{{serie.thumbnail.path}}/portrait_uncanny.{{serie.thumbnail.extension}}" ng-click="goComic(serie)">
+                        <md-card-content>
+                            <h2 class="md-title title">{{serie.title}}</h2>
+                            <p class="description">{{serie.description}}</p>
+
+                            <md-button class="see-more" ng-click="goComic(response)">{{'see_more' | translate}}</md-button>
+                        </md-card-content>
+                    </md-card>
+
+                </md-content>
+            </div>
+        </div>
+
+        <div class="creator-stories">
+            <h1>{{creator.fullName}} : Stories</h1>
+
+            <div class="card-comics">
+                <md-content class="comicsContent md-padding">
+
+                    <md-card class="comic" ng-repeat="story in stories">
+                        <img class="event-img" src="{{story.thumbnail.path}}/portrait_uncanny.{{story.thumbnail.extension}}" ng-click="goComic(story)">
+                        <md-card-content>
+                            <h2 class="md-title title">{{story.title}}</h2>
+                            <p class="description">{{story.description}}</p>
+
+                            <md-button class="see-more" ng-click="goComic(story)">{{'see_more' | translate}}</md-button>
+                        </md-card-content>
+                    </md-card>
+
+                </md-content>
+            </div>
+        </div>
+    </div>
+
+    <footer></footer>
+</div>

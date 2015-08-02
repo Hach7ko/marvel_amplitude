@@ -1,0 +1,57 @@
+<div class="container container-home">
+
+    <sub-header></sub-header>
+
+
+    <div class="main">
+        <search></search>
+
+        <div class="events" ng-show="isSearching == false">
+
+            <div class="newsletter" ng-show="showModal && isSearching == false">
+                <span class="glyphicon glyphicon-remove" aria-hidden="true" ng-click="closeModal()"></span>
+
+                <div class="explication" ng-show="isSearching == false">
+                    <p>Marvel X Amplitude is a database on which you can browse through the whole Marvel catalogue.</p>
+
+                    <p>You can either search by title or by author, then refine your search.</p>
+
+                    <p>An author's page is divided between comics, series and stories, depending on what said author has worked on.</p>
+
+                    <p>Each comics' page shows a synopsis of the issue, it's number and date of release, it's price, and the people who worked on it.</p>
+                </div>
+
+                <label class="bestof">{{'best_of' | translate}}</label>
+                <md-input-container md-no-float>
+                    <input class="mail" ng-model="user.mail" type="email" placeholder="{{'your_email' | translate}}">
+                </md-input-container>
+                <div class="join-newsletter">
+                    <md-button class="join" ng-click="closeModal()">{{'join' | translate}}</md-button>
+                </div>
+            </div>
+
+            <div class="event">
+                <md-content class="md-padding">
+                    <md-tabs md-dynamic-height md-border-bottom>
+                        <md-tab class="tab" label="{{event.title}}" ng-repeat="event in events | limitTo:8">
+                            <md-content class="md-padding">
+                                <div class="img">
+                                    <img class="event-img" src="{{event.thumbnail.path}}.{{event.thumbnail.extension}}">
+                                </div>
+                                <div class="description">
+                                    <p>{{event.description}}</p>
+                                </div>
+                                <md-button class="see-more">{{'see_more' | translate}}</md-button>
+                            </md-content>
+                        </md-tab>
+                    </md-tabs>
+                </md-content>
+            </div>
+
+        </div>
+
+    </div>
+
+    <footer></footer>
+
+</div>

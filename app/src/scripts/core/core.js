@@ -1,47 +1,37 @@
 'use strict';
 
-angular.module('<%%=applicationName%>', [
+require('../creator/creator');
+require('../comic/comic');
+require('../subHeader/subHeader');
+require('../search/search');
+
+angular.module('marvel_amplitude', [
     'ngAnimate',
     'ngTouch',
     'ngSanitize',
     'ui.router',
-    'pascalprecht.translate'
+    'pascalprecht.translate',
+    'ngMaterial',
+    'creator',
+    'comic',
+    'subHeader',
+    'search'
 ])
-    .constant('TIMEOUT', 60 * 1000) // 60 secs
-    .controller('MainCtrl', require('./controllers/MainCtrl'))
-    .service('session', require('./services/session'))
-    .run(function (session, $state) {
-
-        session.init(function() {
-            $state.go('home');
-        });
-
-        /**
-         * Android keyboard
-         */
-        // With this lines you correct the android keyboard comportment for the form
-        document.getElementsByTagName('body')[0].style.height = window.innerHeight + 'px';
-        document.getElementsByTagName('html')[0].style.height = window.innerHeight+ 'px';
-    })
+    .controller('HomeCtrl', require('./controllers/HomeCtrl'))
+    .service('events', require('./services/events.js'))
+    .service('search', require('./services/search.js'))
     .config(function ($stateProvider, $urlRouterProvider, $translateProvider) {
         /**
          * Angular application configuration
          */
         $stateProvider
             .state('home', {
-                url: '/',
-                templateUrl: 'core/partials/main.html',
-                controller: 'MainCtrl'
+                url: '/home',
+                templateUrl: 'core/partials/home.html',
+                controller: 'HomeCtrl'
             });
 
-        $urlRouterProvider.otherwise('/');
-
-        /**
-         * Kiwapp configuration
-         */
-
-        // No rotation (this application is mode landscape only)
-        Kiwapp.rotate('landscape');
+        $urlRouterProvider.otherwise('/home');
 
         $translateProvider.useStaticFilesLoader({
             prefix: 'i18n/',

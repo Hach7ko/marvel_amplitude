@@ -1,0 +1,55 @@
+<div class="searchResult" ng-show="isSearching">
+    <h1>Search result</h1>
+
+    <md-sidenav class="md-sidenav-left md-whiteframe-2" md-component-id="left">
+        <md-toolbar class="">
+            <h1 class="md-toolbar-tools">Affiner votre recherche</h1>
+        </md-toolbar>
+        <md-content layout-padding>
+            <md-checkbox ng-model="search.comics" aria-label="Comics" ng-init="search.creators=true">
+                {{'creators' | translate}}
+            </md-checkbox>
+            <md-checkbox ng-model="search.creators" aria-label="Creators" ng-init="search.comics=true">
+                {{'comics' | translate}}
+            </md-checkbox>
+            <md-button ng-click="close()" class="md-primary" hide-gt-md>
+                {{'close' | translate}}
+            </md-button>
+        </md-content>
+    </md-sidenav>
+
+    <md-button ng-click="toggleLeft()"
+               class="md-primary" hide-gt-md>
+        Toggle left
+    </md-button>
+
+    <div class="card-comics" ng-if="search.comics && searchResponseComics.length > 0">
+        <h2>{{'comics' | translate}}</h2>
+        <md-content class="comicsContent md-padding">
+
+            <md-card class="comic" ng-repeat="response in searchResponseComics">
+                <img class="event-img" src="{{response.thumbnail.path}}/portrait_uncanny.{{response.thumbnail.extension}}" ng-click="goComic(response)">
+                <md-card-content>
+                    <h2 class="md-title title">{{response.title}}</h2>
+                    <p class="description">{{response.description}}</p>
+
+                    <md-button class="see-more" ng-click="goComic(response)">{{'see_more' | translate}}</md-button>
+                </md-card-content>
+            </md-card>
+
+        </md-content>
+    </div>
+
+    <div class="card-creators" ng-if="search.creators">
+        <h2>{{'creators' | translate}}</h2>
+        <md-content class="creatorsContent md-padding">
+
+            <md-card ng-repeat="response in searchResponseCreators" ng-click="goCreator(response)">
+                <md-card-content>
+                    <h2 class="md-title fullName">{{response.fullName}}</h2>
+                </md-card-content>
+            </md-card>
+
+        </md-content>
+    </div>
+</div>
