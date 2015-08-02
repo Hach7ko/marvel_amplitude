@@ -1,6 +1,6 @@
 'use strict';
 /*@ngInject*/
-module.exports = function ($scope, $translate, events, search, $mdToast, $mdUtil, $mdSidenav) {
+module.exports = function ($scope, $translate, events, search, $mdToast, $mdUtil, $mdSidenav, $state) {
     $scope.showModal = true;
     $scope.isSearching = false;
 
@@ -13,10 +13,9 @@ module.exports = function ($scope, $translate, events, search, $mdToast, $mdUtil
     };
 
     $scope.searchBy = function searchBy(value) {
-        search.searchByComics(value)
+        /*search.searchByComics(value)
             .success(function(response) {
                 $scope.searchResponseComics = response.data.results;
-                console.log($scope.searchResponseComics);
 
                 $scope.isSearching = true;
             })
@@ -29,12 +28,11 @@ module.exports = function ($scope, $translate, events, search, $mdToast, $mdUtil
                 $mdToast.show(toast).then(function() {
                     $scope.searchBy(value);
                 });
-            });
+            });*/
 
        search.searchByCreators(value)
             .success(function(response) {
                 $scope.searchResponseCreators = response.data.results;
-                //console.log($scope.searchResponseCreators);
 
                 $scope.isSearching = true;
             })
@@ -59,11 +57,20 @@ module.exports = function ($scope, $translate, events, search, $mdToast, $mdUtil
 
         });*/
 
+    $scope.goCreator = function goCreator(creator) {
+        console.log(creator);
+        $state.go('pageCreator', {
+            creatorId: creator.id,
+            creator: creator
+        });
+    };
+
     $scope.toggleLeft = buildToggler('left');
 
     $scope.close = function () {
         $mdSidenav('left').close();
     };
+
     /**
      * Build handler to open/close a SideNav; when animation finishes
      * report completion in console

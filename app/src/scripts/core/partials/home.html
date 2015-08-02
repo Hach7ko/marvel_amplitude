@@ -7,9 +7,9 @@
         <div class="search">
             <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
             <input class="input-search" type="search" placeholder="{{'search' | translate}}" ng-model="searchValue">
-            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+            <span class="glyphicon glyphicon-remove" aria-hidden="true" ng-click="searchValue=''"></span>
 
-            <md-button ng-click="searchBy(searchValue)">{{'search' | translate}}</md-button>
+            <md-button class="validSearch" ng-click="searchBy(searchValue)">{{'search' | translate}}</md-button>
         </div>
         <div class="lock-size" layout="row" layout-align="center center">
             <md-fab-speed-dial  md-direction="down" ng-class="md-scale">
@@ -40,7 +40,7 @@
             <md-input-container md-no-float>
                 <input ng-model="user.mail" type="email" placeholder="{{'your_email' | translate}}">
             </md-input-container>
-            <md-button class="join">{{'join' | translate}}</md-button>
+            <md-button class="join" ng-click="closeModal()">{{'join' | translate}}</md-button>
         </div>
 
         <div class="searchResult" ng-show="isSearching">
@@ -52,13 +52,13 @@
                 </md-toolbar>
                 <md-content layout-padding>
                     <md-checkbox ng-model="search.comics" aria-label="Comics" ng-init="search.comics=true">
-                        Comics
+                        {{'creators' | translate}}
                     </md-checkbox>
                     <md-checkbox ng-model="search.creators" aria-label="Creators" ng-init="search.creators=true">
-                        Creators
+                        {{'comics' | translate}}
                     </md-checkbox>
                     <md-button ng-click="close()" class="md-primary" hide-gt-md>
-                        Fermer
+                        {{'close' | translate}}
                     </md-button>
                 </md-content>
             </md-sidenav>
@@ -69,7 +69,7 @@
             </md-button>
 
             <div class="carddemoBasicUsage" ng-if="search.comics">
-                <h2>Comics</h2>
+                <h2>{{'comics' | translate}}</h2>
                 <md-content class="md-padding">
 
                     <md-card ng-repeat="response in searchResponseComics">
@@ -84,12 +84,12 @@
             </div>
 
             <div class="carddemoBasicUsage" ng-if="search.creators">
-                <h2>Creators</h2>
+                <h2>{{'creators' | translate}}</h2>
                 <md-content class="md-padding">
 
                     <md-card ng-repeat="response in searchResponseCreators">
                         <md-card-content>
-                            <h2 class="md-title">{{response.fullName}}</h2>
+                            <h2 class="md-title" ng-click="goCreator(response)">{{response.fullName}}</h2>
                         </md-card-content>
                     </md-card>
 
