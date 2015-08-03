@@ -1,10 +1,10 @@
 {
   "app_info": {
     "name": "marvel_amplitude",
-    "author": "Kiwapp",
+    "author": "Samya",
     "codename": "0.0.1",
-    "author_email": "contact@kiwapp.com",
-    "description": "<%%=description%>",
+    "author_email": "samya.khemri&gmail.com",
+    "description": "amplitude test",
     "release_note": {
       "1.0.0": ["Your release note here"]
     },

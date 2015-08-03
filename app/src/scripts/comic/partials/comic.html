@@ -4,7 +4,7 @@
     <div class="main">
         <search></search>
         <div class="card-comics" ng-if="isSearching == false">
-            <h2>{{'comics' | translate}}</h2>
+            <h2 class="title-comics">Comics</h2>
             <md-content class="comicsContent md-padding">
 
                 <md-card class="comic" ng-repeat="comic in comics">
@@ -13,7 +13,7 @@
                         <h2 class="md-title title">{{comic.title}}</h2>
                         <p class="description">{{comic.description}}</p>
 
-                        <md-button class="see-more" ng-click="goComic(comic)">{{'see_more' | translate}}</md-button>
+                        <md-button class="see-more" ng-click="goComic(comic)">See More</md-button>
                     </md-card-content>
                 </md-card>
 

@@ -5,7 +5,7 @@
     <div class="main">
         <search></search>
         <div class="creator-comics">
-            <h1>{{creator.fullName}} : {{'comics' | translate}}</h1>
+            <h1>{{creator.fullName}} : Comics</h1>
 
             <div class="card-comics">
                 <md-content class="comicsContent md-padding">
@@ -16,7 +16,7 @@
                             <h2 class="md-title title">{{comic.title}}</h2>
                             <p class="description">{{comic.description}}</p>
 
-                            <md-button class="see-more" ng-click="goComic(response)">{{'see_more' | translate}}</md-button>
+                            <md-button class="see-more" ng-click="goComic(comic)">{{'see_more' | translate}}</md-button>
                         </md-card-content>
                     </md-card>
 
@@ -35,8 +35,6 @@
                         <md-card-content>
                             <h2 class="md-title title">{{serie.title}}</h2>
                             <p class="description">{{serie.description}}</p>
-
-                            <md-button class="see-more" ng-click="goComic(response)">{{'see_more' | translate}}</md-button>
                         </md-card-content>
                     </md-card>
 
@@ -55,8 +53,6 @@
                         <md-card-content>
                             <h2 class="md-title title">{{story.title}}</h2>
                             <p class="description">{{story.description}}</p>
-
-                            <md-button class="see-more" ng-click="goComic(story)">{{'see_more' | translate}}</md-button>
                         </md-card-content>
                     </md-card>
 

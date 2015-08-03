@@ -66,9 +66,19 @@ input, textarea {
     bottom: 0;
 }
 
+button {
+    border: none;
+    &:focus {
+        outline: none;
+    }
+}
+
 .container {
     background: url('../assets/images/debut_light.png') repeat;
     font-family: 'Esphimere';
+    .ng-click-active {
+        animation: scalingTouch 1s;
+    }
 
     header {
         background-color: black;
@@ -136,6 +146,11 @@ input, textarea {
                     position: relative;
                     bottom: 8px;
                 }
+            }
+
+            .validSearch:hover {
+                background-color: #ffffff;
+                color:$primaryRed;
             }
 
             input {
@@ -210,6 +225,11 @@ input, textarea {
                 color: #ffffff;
             }
 
+            .subheader-button:hover {
+                color: $primaryRed;
+                background-color: #ffffff;
+            }
+
             .triangle {
                 width: 0;
                 height: 0;
@@ -233,11 +253,32 @@ input, textarea {
         width: 100%;
         background-color: #000000;
         color: white;
+
+        font-size: 2rem;
+        text-align: center;
     }
 
     .searchResult {
         margin: 0 auto;
         margin-top: 150px;
+
+        .refine {
+            font-size: 1.5rem;
+            background-color: #ffffff;
+            box-shadow: 0px 0px 5px #8B8B8B;
+            height: 50px;
+            text-align: center;
+            margin-bottom: -10px;
+
+            .check-refine {
+                display: inline-block;
+                .md-container {
+                    .md-icon {
+                        background-color: $primaryRed;
+                    }
+                }
+            }
+        }
 
         .card-comics {
             background: none;
@@ -309,3 +350,11 @@ input, textarea {
 
 }
 
+.ng-click-active {
+    animation: scalingTouch 1s;
+}
+
+img:hover {
+    -webkit-transform: scale(1.2,1.2);
+    -moz-transform:scale(1.2,1.2);
+}

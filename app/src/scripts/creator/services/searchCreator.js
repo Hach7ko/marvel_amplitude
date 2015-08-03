@@ -12,7 +12,7 @@ module.exports = function($http, md5) {
     service.searchByCreatorById = function searchByCreatorById(value) {
         var ts = Date.now().toString();
         var hash = md5.createHash(ts+service.privateKey+service.publicKey);
-        var url = service.url + '/v1/public/creators/' + value.toString() + '&ts=' + ts + '&apikey=' + service.publicKey + '&hash=' + hash;
+        var url = service.url + '/v1/public/creators/' + value.toString() + '?ts=' + ts + '&apikey=' + service.publicKey + '&hash=' + hash;
 
         return $http.get(url)
             .success(function(response) {

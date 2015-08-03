@@ -8,9 +8,9 @@
 
         <div class="intro" ng-show="isSearching == false">
             <p>Marvel X Amplitude is a database on which you can browse through the whole Marvel catalogue.</p>
-            <p>You can either search by title or by author, then refine your search.</p>
+            <p>You can either search by comic's title or by author</p>
             <p>An author's page is divided between comics, series and stories, depending on what said author has worked on.</p>
-            <p>Each comics' page shows a synopsis of the issue, it's number and date of release, it's price, and the people who worked on it.</p>
+            <p>Each comics' page shows a synopsis of the issue, it's number and the people who worked on it.</p>
         </div>
 
         <div class="events" ng-show="isSearching == false">
@@ -20,13 +20,13 @@
                         <md-tab class="tab" label="{{event.title}}" ng-repeat="event in events | limitTo:8">
                             <md-content class="md-padding">
                                 <div class="img">
-                                    <img class="event-img" src="{{event.thumbnail.path}}.{{event.thumbnail.extension}}">
+                                    <img class="event-img" src="{{event.thumbnail.path}}.{{event.thumbnail.extension}}" ng-click="goEvent(event)">
                                 </div>
                                 <div class="description">
                                     <p>{{event.description}}</p>
                                 </div>
                             </md-content>
-                            <md-button class="see-more" ng-click="goEvent(event)">{{'see_more' | translate}}</md-button>
+                            <md-button class="see-more" ng-click="goEvent(event)">See More</md-button>
                         </md-tab>
                     </md-tabs>
                 </md-content>

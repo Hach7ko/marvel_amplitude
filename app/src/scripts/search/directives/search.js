@@ -6,6 +6,9 @@ module.exports = function () {
         restrict: 'E',
         replace: true,
         controller: function ($scope, $state) {
+            $scope.search.comics = true;
+            $scope.search.creators = true;
+
             $scope.goToComics = function goToComics() {
                 $state.go('comic');
             };

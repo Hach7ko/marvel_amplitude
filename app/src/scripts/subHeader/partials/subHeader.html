@@ -3,13 +3,16 @@
         <img src="assets/images/Marvel_Header.png">
     </div>
     <div class="search">
-        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-        <input class="input-search" type="search" placeholder="{{'search' | translate}}" ng-model="searchValue">
-        <span class="glyphicon glyphicon-remove" aria-hidden="true" ng-click="searchValue=''"></span>
+        <form ng-submit="searchBy(searchValue)">
+            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+            <input class="input-search" type="search" placeholder="{{'search' | translate}}" ng-model="searchValue">
+            <span class="glyphicon glyphicon-remove" aria-hidden="true" ng-click="searchValue=''"></span>
 
-        <md-button class="validSearch" ng-click="searchBy(searchValue)">
-            <span class="search-txt">{{'search' | translate}}</span>
-        </md-button>
+            <md-button class="validSearch" ng-click="searchBy(searchValue)">
+                <span class="search-txt">Search</span>
+            </md-button>
+        </form>
+
     </div>
     <div class="lock-size" layout="row" layout-align="center center">
         <md-fab-speed-dial  md-direction="down" ng-class="md-scale">
@@ -31,9 +34,9 @@
         </md-fab-speed-dial>
     </div>
     <md-subheader class="subheader md-primary">
-        <md-button class="subheader-button" ng-click="goToComics()">{{'comics' | translate}}</md-button>
-        <md-button class="subheader-button" ng-click="goToCreators()">{{'creators' | translate}}</md-button>
-        <md-button class="subheader-button" ng-click="goToEvents()">events</md-button>
+        <md-button class="subheader-button" ng-click="goToComics()">Comics</md-button>
+        <md-button class="subheader-button" ng-click="goToCreators()">Creators</md-button>
+        <md-button class="subheader-button" ng-click="goToEvents()">Events</md-button>
         <span class="triangle"></span>
     </md-subheader>
 </header>

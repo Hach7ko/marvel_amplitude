@@ -1,11 +1,10 @@
 'use strict';
 /*@ngInject*/
-module.exports = function ($stateParams, searchCreator, $mdToast, $scope) {
+module.exports = function ($stateParams, searchCreator, $mdToast, $scope, $state) {
 
     searchCreator.searchByCreatorById($stateParams.creatorId)
         .success(function(response) {
             $scope.creator = response.data.results[0];
-            console.log($scope.creator);
         })
         .error(function() {
             var toast = $mdToast.simple()
@@ -61,4 +60,11 @@ module.exports = function ($stateParams, searchCreator, $mdToast, $scope) {
             $mdToast.show(toast).then(function() {
             });
         });
+
+    $scope.goComic = function goComic(comic) {
+        console.log(comic)
+        $state.go('pageComic', {
+            comicId: comic.id
+        });
+    };
 };

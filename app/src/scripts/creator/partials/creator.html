@@ -4,12 +4,12 @@
     <div class="main">
         <search></search>
         <div class="card-creators">
-            <h2>{{'creators' | translate}}</h2>
+            <h2 class="creator-title">{{'creators' | translate}}</h2>
             <md-content class="creatorsContent md-padding">
 
-                <md-card ng-repeat="creator in creators" ng-click="goCreator(creator)">
-                    <md-card-content>
-                        <h2 class="md-title fullName">{{creator.fullName}}</h2>
+                <md-card ng-if="creator.comics.available !== 0 && creator.series.available !== 0 && creator.stories.available !== 0" ng-repeat="creator in creators" ng-click="goCreator(creator)">
+                    <md-card-content class="fullName">
+                        <h2 class="md-title">{{creator.fullName}}</h2>
                     </md-card-content>
                 </md-card>
 

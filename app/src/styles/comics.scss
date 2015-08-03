@@ -53,8 +53,14 @@
         padding: 25px;
         .card-comics {
             background: none;
+            width: 100%;
             margin: 0 auto;
             margin-top: 150px;
+            margin-left: 25px;
+
+            .title-comics {
+                font-size: 2.5rem;
+            }
 
             .comicsContent {
                 background: none;
@@ -64,17 +70,21 @@
                 width: 250px;
                 display: inline-block;
                 background: white;
+                margin: 20px;
 
                 .title {
                     text-overflow: ellipsis;
                     overflow: hidden;
                     height: 25px;
+                    text-align: center;
+                    font-weight: bold;
                 }
 
                 .description {
                     height: 50px;
                     overflow: hidden;
                     text-overflow: ellipsis;
+                    text-align: center;
                 }
 
                 .see-more {
@@ -85,6 +95,10 @@
                     background-color: #000000;
                     color: white;
                 }
+            }
+
+            .load {
+                margin-bottom: 100px;
             }
         }
     }
