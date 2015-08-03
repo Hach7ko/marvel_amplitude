@@ -71,6 +71,12 @@ module.exports = function ($scope, $translate, events, search, $mdToast, $mdUtil
         });
     };
 
+    $scope.goEvent = function goEvent(event) {
+        $state.go('pageEvent', {
+            eventId: event.id
+        });
+    };
+
     $scope.goHome = function goHome() {
         $state.go('home');
     };

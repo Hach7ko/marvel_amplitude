@@ -1,0 +1,20 @@
+<div class="container container-pageComic">
+
+    <sub-header></sub-header>
+
+    <div class="main">
+        <search></search>
+        <div class="comic" ng-if="isSearching == false">
+            <div class="img">
+                <img class="comic-img" src="{{event.thumbnail.path}}/portrait_uncanny.{{event.thumbnail.extension}}">
+            </div>
+            <div class="info">
+                <h1 class="title">{{event.title}}</h1>
+
+                <p class="description">{{event.description}}</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>Data provided by Marvel. © 2015 MARVEL</footer>
+</div>

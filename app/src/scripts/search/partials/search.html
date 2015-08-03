@@ -1,9 +1,9 @@
 <div class="searchResult" ng-show="isSearching">
-    <h1>Search result</h1>
+    <h1>{{'search_result' | translate}}</h1>
 
     <md-sidenav class="md-sidenav-left md-whiteframe-2" md-component-id="left">
         <md-toolbar class="">
-            <h1 class="md-toolbar-tools">Affiner votre recherche</h1>
+            <h1 class="md-toolbar-tools">{{'refine' | translate}}</h1>
         </md-toolbar>
         <md-content layout-padding>
             <md-checkbox ng-model="search.comics" aria-label="Comics" ng-init="search.creators=true">
@@ -42,7 +42,7 @@
         <md-button class="load" ng-click="load()"><span class="glyphicon glyphicon-menu-down"></span></md-button>
     </div>
 
-    <div class="card-creators" ng-if="search.creators">
+    <div class="card-creators" ng-if="search.creators && searchResponseCreators.length > 0">
         <h2>{{'creators' | translate}}</h2>
         <md-content class="creatorsContent md-padding">
 

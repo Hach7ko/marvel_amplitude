@@ -131,6 +131,11 @@ input, textarea {
                 left: 175px;
 
                 text-align: center;
+
+                .search-txt {
+                    position: relative;
+                    bottom: 8px;
+                }
             }
 
             input {
@@ -231,7 +236,7 @@ input, textarea {
     }
 
     .searchResult {
-        margin: 25px;
+        margin: 0 auto;
         margin-top: 150px;
 
         .card-comics {

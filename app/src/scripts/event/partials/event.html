@@ -1,0 +1,27 @@
+<div class="container container-events">
+    <sub-header></sub-header>
+
+    <div class="main">
+        <search></search>
+        <div class="card-comics" ng-if="isSearching == false">
+            <h2>{{'events' | translate}}</h2>
+            <md-content class="comicsContent md-padding">
+
+                <md-card class="comic" ng-repeat="event in events">
+                    <img class="event-img" src="{{event.thumbnail.path}}/portrait_uncanny.{{event.thumbnail.extension}}" ng-click="goEvent(event)">
+                    <md-card-content>
+                        <h2 class="md-title title">{{event.title}}</h2>
+                        <p class="description">{{event.description}}</p>
+
+                        <md-button class="see-more" ng-click="goEvent(event)">{{'see_more' | translate}}</md-button>
+                    </md-card-content>
+                </md-card>
+
+            </md-content>
+
+            <md-button class="load" ng-click="load()"><span class="glyphicon glyphicon-menu-down"></span></md-button>
+        </div>
+    </div>
+
+    <footer>Data provided by Marvel. © 2015 MARVEL</footer>
+</div>

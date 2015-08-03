@@ -7,11 +7,11 @@ module.exports = function () {
         replace: true,
         controller: function ($scope, $state) {
             $scope.goToComics = function goToComics() {
-                $state.go('comic')
+                $state.go('comic');
             };
 
             $scope.goToCreators = function goToCreators() {
-                $state.go('creator')
+                $state.go('creator');
             };
 
             $scope.goHome = function goHome() {

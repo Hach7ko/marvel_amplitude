@@ -9,10 +9,10 @@ module.exports = function($http, md5) {
     service.privateKey = 'cf3efa3192633bc25e4f0d3747c209b3900c9e97';
 
 
-    service.searchByCreatorById = function searchByCreatorById(value) {
+    service.getEventById = function getEventById(value) {
         var ts = Date.now().toString();
         var hash = md5.createHash(ts+service.privateKey+service.publicKey);
-        var url = service.url + '/v1/public/creators/' + value.toString() + '&ts=' + ts + '&apikey=' + service.publicKey + '&hash=' + hash;
+        var url = service.url + '/v1/public/events/' + value.toString() + '?ts=' + ts + '&apikey=' + service.publicKey + '&hash=' + hash;
 
         return $http.get(url)
             .success(function(response) {
@@ -23,10 +23,10 @@ module.exports = function($http, md5) {
             });
     };
 
-    service.searchByCreators = function searchByCreators(offset) {
+    service.getEvents = function getEvents(offset) {
         var ts = Date.now().toString();
         var hash = md5.createHash(ts+service.privateKey+service.publicKey);
-        var url = service.url + '/v1/public/creators?orderBy=firstName&offset=' + offset + '&ts=' + ts + '&apikey=' + service.publicKey + '&hash=' + hash;
+        var url = service.url + '/v1/public/events?orderBy=startDate&offset=' + offset.toString() + '&ts=' + ts + '&apikey=' + service.publicKey + '&hash=' + hash;
 
         return $http.get(url)
             .success(function(response) {
@@ -37,10 +37,15 @@ module.exports = function($http, md5) {
             });
     };
 
-    service.getCreatorComics = function getCreatorComics(value) {
+    /****
+     * OLD
+     * @param value
+     * @returns {*}
+     */
+    service.searchByComicById = function searchByComicById(value) {
         var ts = Date.now().toString();
         var hash = md5.createHash(ts+service.privateKey+service.publicKey);
-        var url = service.url + '/v1/public/creators/' + value.toString() + '/comics?orderBy=-onsaleDate&ts=' + ts + '&apikey=' + service.publicKey + '&hash=' + hash;
+        var url = service.url + '/v1/public/comics/' + value.toString() + '&ts=' + ts + '&apikey=' + service.publicKey + '&hash=' + hash;
 
         return $http.get(url)
             .success(function(response) {
@@ -51,24 +56,10 @@ module.exports = function($http, md5) {
             });
     };
 
-    service.getCreatorSeries = function getCreatorSeries(value) {
+    service.searchByComic = function searchByComic(offset) {
         var ts = Date.now().toString();
         var hash = md5.createHash(ts+service.privateKey+service.publicKey);
-        var url = service.url + '/v1/public/creators/' + value.toString() + '/series?orderBy=-startYear&ts=' + ts + '&apikey=' + service.publicKey + '&hash=' + hash;
-
-        return $http.get(url)
-            .success(function(response) {
-                console.log(response);
-            })
-            .error(function(response) {
-                console.log(response);
-            });
-    };
-
-    service.getCreatorStories = function getCreatorStories(value) {
-        var ts = Date.now().toString();
-        var hash = md5.createHash(ts+service.privateKey+service.publicKey);
-        var url = service.url + '/v1/public/creators/' + value.toString() + '/stories?orderBy=-modified&ts=' + ts + '&apikey=' + service.publicKey + '&hash=' + hash;
+        var url = service.url + '/v1/public/comics?orderBy=-onsaleDate&offset=' + offset.toString() + '&ts=' + ts + '&apikey=' + service.publicKey + '&hash=' + hash;
 
         return $http.get(url)
             .success(function(response) {
@@ -83,6 +74,20 @@ module.exports = function($http, md5) {
         var ts = Date.now().toString();
         var hash = md5.createHash(ts+service.privateKey+service.publicKey);
         var url = service.url + '/v1/public/comics?titleStartsWith=' + value + '&ts=' + ts + '&apikey=' + service.publicKey + '&hash=' + hash;
+
+        return $http.get(url)
+            .success(function(response) {
+                console.log(response);
+            })
+            .error(function(response) {
+                console.log(response);
+            });
+    };
+
+    service.searchByCreators = function searchByCreators(value) {
+        var ts = Date.now().toString();
+        var hash = md5.createHash(ts+service.privateKey+service.publicKey);
+        var url = service.url + '/v1/public/creators?nameStartsWith=' + value + '&ts=' + ts + '&apikey=' + service.publicKey + '&hash=' + hash;
 
         return $http.get(url)
             .success(function(response) {

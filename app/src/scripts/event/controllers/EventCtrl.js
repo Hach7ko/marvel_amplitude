@@ -1,17 +1,19 @@
 'use strict';
 /*@ngInject*/
-module.exports = function (searchCreator, $mdToast, $scope, $state) {
+module.exports = function (searchEvent, $mdToast, $scope, $state, $translate) {
+    $scope.isSearching = false;
     $scope.offset = 20;
 
-    $scope.searchCreators = function(offset) {
-        searchCreator.searchByCreators(offset)
+    $scope.searchEvents = function searchEvents(offset) {
+        searchEvent.getEvents(offset)
             .success(function(response) {
-                if($scope.creators !== undefined) {
+
+                if($scope.events !== undefined) {
                     for(var data in response.data.results) {
-                        $scope.creators[$scope.creators.length] = response.data.results[data];
+                        $scope.events[$scope.events.length] = response.data.results[data];
                     }
                 } else {
-                    $scope.creators = response.data.results;
+                    $scope.events = response.data.results;
                 }
             })
             .error(function() {
@@ -27,20 +29,18 @@ module.exports = function (searchCreator, $mdToast, $scope, $state) {
 
     $scope.load = function load() {
         $scope.offset+=20;
-        $scope.searchCreators($scope.offset);
+        $scope.searchEvents($scope.offset);
     };
 
-    $scope.goCreator = function goCreator(creator) {
-        $state.go('pageCreator', {
-            creatorId: creator.id
-        });
+    $scope.changeLanguage = function changeLanguage(language) {
+        $translate.use(language);
     };
 
     $scope.searchBy = function searchBy(value) {
 
         value = value.replace(/\s+/g, '+');
 
-        searchCreator.searchByComics(value)
+        searchEvent.searchByComics(value)
             .success(function(response) {
                 $scope.searchResponseComics = response.data.results;
 
@@ -57,7 +57,7 @@ module.exports = function (searchCreator, $mdToast, $scope, $state) {
                 });
             });
 
-        searchCreator.searchByCreators(value)
+        searchEvent.searchByCreators(value)
             .success(function(response) {
                 $scope.searchResponseCreators = response.data.results;
 
@@ -75,5 +75,15 @@ module.exports = function (searchCreator, $mdToast, $scope, $state) {
             });
     };
 
-    $scope.searchCreators($scope.offset);
+    $scope.goHome = function goHome() {
+        $state.go('home');
+    };
+
+    $scope.goEvent = function goEvent(event) {
+        $state.go('pageEvent', {
+            eventId: event.id
+        });
+    };
+
+    $scope.searchEvents($scope.offset);
 };
