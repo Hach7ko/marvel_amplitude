@@ -2,7 +2,7 @@
 
 ## Let's start !
 
-To visit the awesome project MARVEL x AMPLITUDE you can clone the project and use the app.zip file. Once dezip, you just have to doubcle-click on index.html file.
+To visit the awesome project MARVEL x AMPLITUDE you can clone the project and use the `index.zip` file. Once dezip, you just have to doubcle-click on index.html file.
 Easy !
 
 ## To contribuate
