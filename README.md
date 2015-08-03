@@ -1,32 +1,10 @@
-# AngularJS
+# MARVEL x AMPLITUDE
 
-## The available commands 
- 
-  <a href="https://github.com/kiwapp/Kiwapp_GulpFile/blob/master/README.md">See the Kiwapp GulpFile Readme</a>
-  
-## The application
- 
- <a href="app/Readme.md">See the application Readme</a> 
- 
-## The three in one application (microback office application)
+## Let's start !
 
-In the Kiwapp environment, you can create a basic html5 application.
-But you can also create a customizable application, and add an application for some data visualisation. 
+To visit the awesome project MARVEL x AMPLITUDE you can clone the project and use the app.zip file. Once dezip, you just have to doubcle-click on index.html file.
+Easy !
 
- - For the customization add a folder named : 'app-setup' in your zip
- 
- <a href="app-setup/Readme.md">See the app-setup Readme</a>
- 
- - For the data visualization add a folder named : 'app-databrowser' in your zip
- 
- In this application you haven't any data visualisation
- 
-Important : When you want use a microback office application be careful to build your microback office application with : 
+## To contribuate
 
-```shell
- $ gulp dependencies
-```
- 
- before launch your gulp prod command 
-
-
+If you want to help this project being more awesome, you can clone this project and start with <a href="app/Readme.md">the application Readme</a> 
