@@ -1,8 +1,8 @@
-# <%%=displayName%>
+# MARVEL x AMPLITUDE
 
 ## Presentation
 
-This boilerplate is use for create a new HTML5 application, with many interesting stuff inside
+This project has been create for a test using the Marvel API.
 
 ### Requirements
 
@@ -14,8 +14,6 @@ This boilerplate is use for create a new HTML5 application, with many interestin
 
 - Gulp compilation
 - Sass 
-- moment
-- kiwapp.js
 - angular (angular core, angular router, angular sanitize, angular touch)
 - angular translate
 - Karma (for the unit tests)
@@ -24,23 +22,15 @@ This boilerplate is use for create a new HTML5 application, with many interestin
 
 For the translation we use the angular translate module (https://angular-translate.github.io/)
 
-
-## Release Note :
-
--> Insert your release note here
-
-### 1.0.0
- - Your release note here
-
 ## Get and init the project
 
 Clone this project for init a new project (don't forget to remove the .git folder)
 
 Use the following command
 ```shell
-$ git clone --recursive git@github.com:procheo/boilerplateAngular.git YOUR_PROJECT_FOLDER && cd YOUR_PROJECT_FOLDER && rm -rf .git
+$ git clone --recursive git@github.com:Hach7ko/marvel_amplitude.git YOUR_PROJECT_FOLDER && cd YOUR_PROJECT_FOLDER && rm -rf .git
 ```
-(the recursive option is for clone the submodule with the gulp task specific specially designed for Kiwapp)
+(the recursive option is for clone the submodule with the gulp task specific)
 
 After that your repository with the instructions given by Github.com (git init . -> git add remote ...)
 
