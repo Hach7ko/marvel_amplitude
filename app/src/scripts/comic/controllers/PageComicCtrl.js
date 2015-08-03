@@ -1,6 +1,6 @@
 'use strict';
 /*@ngInject*/
-module.exports = function ($stateParams, searchComic, $mdToast, $scope, $state) {
+module.exports = function ($stateParams, searchComic, $mdToast, $scope, $state, $translate) {
     $scope.isSearching = false;
 
     searchComic.searchByComicById($stateParams.comicId)

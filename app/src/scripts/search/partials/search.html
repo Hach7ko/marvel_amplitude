@@ -17,7 +17,7 @@
         <h2>Comics</h2>
         <md-content class="comicsContent md-padding">
 
-            <md-card class="comic" ng-repeat="response in searchResponseComics">
+            <md-card class="comic" ng-repeat="response in searchResponseComics track by $index">
                 <img class="event-img" src="{{response.thumbnail.path}}/portrait_uncanny.{{response.thumbnail.extension}}" ng-click="goComic(response)">
                 <md-card-content>
                     <h2 class="md-title title">{{response.title}}</h2>

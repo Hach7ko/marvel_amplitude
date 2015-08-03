@@ -9,6 +9,7 @@
     .main {
         padding: 25px;
         .creator-comics, .creator-series, .creator-stories {
+            margin: 0 auto;
             margin-top: 150px;
             .card-comics {
                 background: none;
@@ -22,6 +23,7 @@
                     width: 250px;
                     display: inline-block;
                     background: white;
+                    margin: 20px;
 
                     .title {
                         text-overflow: ellipsis;

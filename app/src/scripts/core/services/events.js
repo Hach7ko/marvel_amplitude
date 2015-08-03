@@ -21,7 +21,7 @@ module.exports = function($http, md5) {
             })
             .error(function(response) {
                 console.log(response);
-;            });
+            });
     };
 
     return service;

@@ -9,6 +9,12 @@
             overflow: hidden;
             width: 100%;
 
+            img:hover {
+                -webkit-transform: scale(1,1);
+                -moz-transform:scale(1,1);
+                opacity: 1;
+            }
+
             .img {
                 float: left;
                 margin: 25px;

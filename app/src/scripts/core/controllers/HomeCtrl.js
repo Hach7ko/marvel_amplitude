@@ -4,6 +4,18 @@ module.exports = function ($scope, $translate, events, search, $mdToast, $mdUtil
     $scope.showModal = true;
     $scope.isSearching = false;
 
+    /**
+     * Build handler to open/close a SideNav; when animation finishes
+     * report completion in console
+     */
+    function buildToggler(navID) {
+        var debounceFn =  $mdUtil.debounce(function(){
+            $mdSidenav(navID)
+                .toggle();
+        },300);
+        return debounceFn;
+    }
+
     $scope.closeModal = function closeModal() {
         $scope.showModal = false;
     };
@@ -86,16 +98,4 @@ module.exports = function ($scope, $translate, events, search, $mdToast, $mdUtil
     $scope.close = function () {
         $mdSidenav('left').close();
     };
-
-    /**
-     * Build handler to open/close a SideNav; when animation finishes
-     * report completion in console
-     */
-    function buildToggler(navID) {
-        var debounceFn =  $mdUtil.debounce(function(){
-            $mdSidenav(navID)
-                .toggle();
-        },300);
-        return debounceFn;
-    }
 };

@@ -2,6 +2,8 @@
 /*@ngInject*/
 module.exports = function (searchCreator, $mdToast, $scope, $state) {
     $scope.offset = 20;
+    $scope.isSearching = false;
+
 
     $scope.searchCreators = function(offset) {
         searchCreator.searchByCreators(offset)

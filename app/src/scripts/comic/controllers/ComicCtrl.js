@@ -1,6 +1,6 @@
 'use strict';
 /*@ngInject*/
-module.exports = function (searchComic, $mdToast, $scope, $state) {
+module.exports = function (searchComic, $mdToast, $scope, $state, $translate) {
     $scope.isSearching = false;
     $scope.offset = 20;
 
@@ -8,7 +8,7 @@ module.exports = function (searchComic, $mdToast, $scope, $state) {
         searchComic.searchByComic(offset)
             .success(function(response) {
 
-                if($scope.comics != undefined) {
+                if($scope.comics !== undefined) {
                     for(var data in response.data.results) {
                         $scope.comics[$scope.comics.length] = response.data.results[data];
                     }

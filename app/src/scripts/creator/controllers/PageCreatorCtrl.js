@@ -1,6 +1,8 @@
 'use strict';
 /*@ngInject*/
 module.exports = function ($stateParams, searchCreator, $mdToast, $scope, $state) {
+    $scope.isSearching = false;
+
 
     searchCreator.searchByCreatorById($stateParams.creatorId)
         .success(function(response) {
@@ -61,8 +63,46 @@ module.exports = function ($stateParams, searchCreator, $mdToast, $scope, $state
             });
         });
 
+    $scope.searchBy = function searchBy(value) {
+
+        value = value.replace(/\s+/g, '+');
+
+        searchCreator.searchByComics(value)
+            .success(function(response) {
+                $scope.searchResponseComics = response.data.results;
+
+                $scope.isSearching = true;
+            })
+            .error(function() {
+                var toast = $mdToast.simple()
+                    .content('Erreur lors de l\'appel.')
+                    .action('Réessayer')
+                    .highlightAction(false)
+                    .position('top right');
+                $mdToast.show(toast).then(function() {
+                    $scope.searchBy(value);
+                });
+            });
+
+        searchCreator.searchByCreators(value)
+            .success(function(response) {
+                $scope.searchResponseCreators = response.data.results;
+
+                $scope.isSearching = true;
+            })
+            .error(function() {
+                var toast = $mdToast.simple()
+                    .content('Erreur lors de l\'appel.')
+                    .action('Réessayer')
+                    .highlightAction(false)
+                    .position('top right');
+                $mdToast.show(toast).then(function() {
+                    $scope.searchBy(value);
+                });
+            });
+    };
+
     $scope.goComic = function goComic(comic) {
-        console.log(comic)
         $state.go('pageComic', {
             comicId: comic.id
         });

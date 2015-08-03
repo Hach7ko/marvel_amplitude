@@ -4,7 +4,7 @@
 
     <div class="main">
         <search></search>
-        <div class="creator-comics">
+        <div class="creator-comics" ng-if="isSearching == false">
             <h1>{{creator.fullName}} : Comics</h1>
 
             <div class="card-comics">
@@ -24,7 +24,7 @@
             </div>
         </div>
 
-        <div class="creator-series">
+        <div class="creator-series" ng-if="isSearching == false">
             <h1>{{creator.fullName}} : Series</h1>
 
             <div class="card-comics">
@@ -42,7 +42,7 @@
             </div>
         </div>
 
-        <div class="creator-stories">
+        <div class="creator-stories" ng-if="isSearching == false">
             <h1>{{creator.fullName}} : Stories</h1>
 
             <div class="card-comics">
